@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2 - 3 Bimestre</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            border: none;
+            outline: none;
+            scroll-behavior: smooth;
+            font-family: "Poppins", sans-serif;
+        }
+
+        :root {
+            --bg-color: #080808;
+            --second-bg-color: #131313;
+            --text-color: white;
+            --main-color: #00ffee;
+        }
+
+        html {
+            font-size: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .botao {
+            background-color: var(--main-color);
+            height: 1.5rem;
+            border-radius: 3rem;
+            border: 5px solid transparent;
+            cursor: pointer;
+            transition: 0.4s ease-in-out;
+            margin-bottom: 2rem;
+            margin-left: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        function maiorNumero(numeros) {
+            let maior = numeros[0]; // Começa assumindo que o primeiro número é o maior
+            for (let i = 1; i < numeros.length; i++) {
+                if (numeros[i] > maior) {
+                    maior = numeros[i]; // Atualiza se encontrar um número maior
+                }
+            }
+            return maior;
+        }
+
+        let numeros = [];
+        for (let i = 0; i < 3; i++) {
+            let entrada = prompt(`Digite o número ${i + 1}:`);
+            const numero = parseFloat(entrada);
+            if (!isNaN(numero)) {
+                numeros.push(numero);
+            } else {
+                alert("Por favor, digite um número válido.");
+                i--; // Para repetir a iteração se a entrada não for válida
+            }
+        }
+
+        const resultado = maiorNumero(numeros);
+        alert(`O maior número é: ${resultado}`);
+    </script>
+    <br>
+    <button onclick="window.location.href='terceiro_bimestre.html'" class="botao">Voltar</button>
+    
+</body>
+
+</html>

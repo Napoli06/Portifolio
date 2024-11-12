@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolução de Equação do Segundo Grau - Davi e João Victor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #080808;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: white;
+        }
+
+        .container {
+            background: 080808;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="number"] {
+            width: 10%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #00ffee;
+            color: #080808;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: white;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+
+        .botao {
+            background-color: #00ffee;
+            height: 1.5rem;
+            border-radius: 3rem;
+            border: 5px solid transparent;
+            cursor: pointer;
+            transition: 0.4s ease-in-out;
+            padding: 0;
+        }
+
+        .botao:hover {
+            background-color: white;
+        }
+
+        label {
+            color: white;
+        }
+        #result {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Resolver Equação do Segundo Grau</h1>
+        <label for="a">Coeficiente a:</label>
+        <input type="number" id="a" placeholder="a" step="any">
+
+        <label for="b">Coeficiente b:</label>
+        <input type="number" id="b" placeholder="b" step="any">
+
+        <label for="c">Coeficiente c:</label>
+        <input type="number" id="c" placeholder="c" step="any">
+
+        <button onclick="resolverEquacao()">Calcular Raízes</button>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function resolverEquacao() {
+            const a = parseFloat(document.getElementById('a').value);
+            const b = parseFloat(document.getElementById('b').value);
+            const c = parseFloat(document.getElementById('c').value);
+            let resultado = '';
+
+            if (isNaN(a) || isNaN(b) || isNaN(c)) {
+                resultado = 'Por favor, insira valores válidos para a, b e c.';
+            } else if (a === 0) {
+                resultado = 'O coeficiente "a" não pode ser zero.';
+            } else {
+                const delta = b * b - 4 * a * c;
+
+                if (delta > 0) {
+                    const raiz1 = (-b + Math.sqrt(delta)) / (2 * a);
+                    const raiz2 = (-b - Math.sqrt(delta)) / (2 * a);
+                    resultado = `As raízes são reais e diferentes:\nRaiz 1: ${raiz1}\nRaiz 2: ${raiz2}`;
+                } else if (delta === 0) {
+                    const raiz = -b / (2 * a);
+                    resultado = `A raiz é real e única:\nRaiz: ${raiz}`;
+                } else {
+                    resultado = 'As raízes são complexas e não reais.';
+                }
+            }
+
+            document.getElementById('result').innerText = resultado.replace(/\n/g, '\n');
+        }
+    </script>
+    <br>
+    <button onclick="window.location.href='quarto_bimestre.html'" class="botao">Voltar</button>
+</body>
+
+</html>

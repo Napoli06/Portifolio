@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 5 - 1 Bimestre</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        border: none;
+        outline: none;
+        scroll-behavior: smooth;
+        font-family: "Poppins", sans-serif;
+    }
+
+    :root {
+        --bg-color: #080808;
+        --second-bg-color: #131313;
+        --text-color: white;
+        --main-color: #00ffee;
+    }
+
+    html {
+        font-size: 100%;
+        overflow-x: hidden;
+    }
+
+    body {
+        background: var(--bg-color);
+        color: var(--text-color);
+    }
+
+    .botao {
+        background-color: var(--main-color);
+        height: 1.5rem;
+        border-radius: 3rem;
+        border: 5px solid transparent;
+        cursor: pointer;
+        transition: 0.4s ease-in-out;
+        margin-bottom: 2rem;
+        margin-left: 2rem;
+    }
+</style>
+
+<body>
+    <script>
+        var Idade
+        Idade = parseInt(prompt("Digite sua Idade: "))
+        if (Idade >= 65) { document.write("Você TEM Direito ao Transporte Público Gratuito <br> <br> Não tem direito ao transporte público = Idade < 65 <br> <br> Tem direito ao transporte público = Idade >= 65")}
+        else { document.write("Você NÃO tem Direito ao Transporte Público Gratuito, Espere Mais <br> <br> Não tem direito ao transporte público = Idade < 65 <br> <br> Tem direito ao transporte público = Idade >= 65") }
+    </script>
+</body><br>
+<br>
+<button onclick="window.location.href='primeiro_bimestre.html'" class="botao">Voltar</button>
+
+</html>

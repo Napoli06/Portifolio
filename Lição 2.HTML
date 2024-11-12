@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exercício 2 - 1 Bimestre</title>
+</head>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: "Poppins", sans-serif;
+}
+
+:root {
+    --bg-color: #080808;
+    --second-bg-color: #131313;
+    --text-color: white;
+    --main-color: #00ffee;
+}
+
+html {
+    font-size: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+.botao {
+    background-color: var(--main-color);
+    height: 1.5rem;
+    border-radius: 3rem;
+    border: 5px solid transparent;
+    cursor: pointer;
+    transition: 0.4s ease-in-out;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+}
+</style>
+<body>
+    <script>
+        var a, b, c, soma, multipliacação, subtração, média
+        a=parseInt(prompt("Digite o Primeiro Número: "));
+        b=parseInt(prompt("Digite o Segundo Número: "));
+        c=parseInt(prompt("Digite o Terceiro Número: "));
+        soma= a+b+c
+        multipliacação= a*b*c
+        subtração= a-b-c
+        média= soma/3
+        document.write("A Soma é: " +soma +"<br>")
+        document.write("A Multiplicação é: " +multipliacação +"<br>")
+        document.write("A Subtração é: " +subtração +"<br>")
+        document.write("A Média é: " +média +"<br>")
+    </script><br>
+    <br>
+    <button onclick="window.location.href='primeiro_bimestre.html'" class="botao">Voltar</button>
+</body>
+</html>

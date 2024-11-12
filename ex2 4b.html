@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 3 - João Victor e Davi</title>
+    <style>
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #080808;
+    font-family: "Poppins", sans-serif;
+    }
+label {
+    margin: 10px 10px;
+    color: white;
+    }
+:root {
+    --bg-color: #080808;
+    --second-bg-color: #131313;
+    --text-color: white;
+    --main-color: #00ffee;
+}
+
+html {
+    font-size: 100%;
+    overflow-x: hidden;
+}
+h1 {
+    color: var(--main-color);
+    font-family: "Poppins", sans-serif;
+}
+#processar {
+    background-color: var(--main-color);
+    border-radius: 3rem;
+    border: 5px solid transparent;
+    cursor: pointer;
+    transition: 0.4s ease-in-out;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    margin-left: 2rem;
+    font-size: 1rem;
+}
+
+#resultado {
+    color: white;
+    font-family: "Poppins", sans-serif;
+}
+::-webkit-scrollbar {
+    width: 12px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--main-color);
+}
+::-webkit-scrollbar-track {
+    background-color: var(--bg-color);
+    width: 50px;
+}
+.botao {
+    background-color: var(--main-color);
+    height: 2rem;
+    border-radius: 3rem;
+    border: 5px solid transparent;
+    cursor: pointer;
+    transition: 0.4s ease-in-out;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+    font-size: 1rem;
+}
+    </style>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtrar e Ordenar Números</title>
+</head>
+<body>
+    <h1>Ordenar os Números em Ordem Decrescente</h1><br>
+    <br>
+    <h1>Digite 10 Números</h1>
+    <div id="inputs"></div>
+    <button id="processar">Processar Números</button>
+    <h2 id="resultado"></h2>
+
+    <script>
+        // Criando inputs para receber 10 números
+const container = document.getElementById('inputs');
+for (let i = 0; i < 10; i++) {
+    const label = document.createElement('label');
+    label.innerText = `Número ${i + 1}: `;
+    const input = document.createElement('input');
+    input.type = 'number';
+    input.id = `numero${i}`;
+    container.appendChild(label);
+    container.appendChild(input);
+    container.appendChild(document.createElement('br'));
+}
+
+// Arrow Function para processar os números
+const processarNumeros = (array) => {
+    return array
+        .filter(numero => numero > 10) // Filtra números maiores que 10
+        .sort((a, b) => b - a); // Ordena em ordem decrescente
+};
+
+// Evento de clique do botão para processar os números
+document.getElementById('processar').addEventListener('click', () => {
+    const numerosInput = [];
+    for (let i = 0; i < 10; i++) {
+        const numero = parseFloat(document.getElementById(`numero${i}`).value);
+        numerosInput.push(numero);
+    }
+
+    // Processando os números
+    const resultado = processarNumeros(numerosInput);
+
+    // Exibindo os resultados na tela
+    document.getElementById('resultado').innerText = 
+        `Números maiores que 10 em ordem decrescente: ${resultado.join(", ")}`;
+});
+    </script>
+    <br>
+    <button onclick="window.location.href='quarto_bimestre.html'" class="botao">Voltar</button>
+</body>
+</html>
+</body>
+</html>

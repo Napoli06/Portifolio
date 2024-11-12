@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 3 - João Victor e Davi</title>
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: "Poppins", sans-serif;
+}
+
+:root {
+    --bg-color: #080808;
+    --second-bg-color: #131313;
+    --text-color: white;
+    --main-color: #00ffee;
+}
+
+html {
+    font-size: 60%;
+    overflow-x: hidden;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: var(--main-color);
+}
+
+#navbar {
+    display: flex;
+    flex-direction: column; 
+    width: 40%; 
+}
+
+.primeiros, .ultimos {
+    display: flex;
+    flex-direction: column; 
+    margin-bottom: 15px;
+}
+
+label {
+    margin-top: 10px;
+    font-size: 2rem;
+}
+
+input {
+    padding: 8px;
+    margin-top: 5px;
+    width: 100%;
+}
+
+.voltar {
+    background-color: var(--main-color);
+    height: 3rem;
+    width: 7rem;
+    border-radius: 3rem;
+    border: 5px solid transparent;
+    cursor: pointer;
+    transition: 0.4s ease-in-out;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+    font-size: 2rem;
+}
+
+#calcular {
+    background-color: var(--main-color);
+    height: 3rem;
+    width: 10rem;
+    border-radius: 3rem;
+    border: 5px solid transparent;
+    cursor: pointer;
+    transition: 0.4s ease-in-out;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+    font-size: 2rem;
+}
+
+button:hover {
+    background-color: white; 
+}
+
+
+#resultado {
+    margin-top: 20px;
+    color: white;
+    font-size: 2rem;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--main-color);
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--bg-color);
+    width: 50px;
+}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">
+            Verifica Quais Valores São Pares e Quais são Ímpares
+        </div>
+        <nav id="navbar">
+            <section id="EXERCICIO_1">
+
+                <div class="primeiros">
+                    <label for="num1">Digite o 1° número</label>
+                    <input type="text" id="num1">
+                    <label for="num2">Digite o 2° número</label>
+                    <input type="text" id="num2">
+                    <label for="num3">Digite o 3° número</label>
+                    <input type="text" id="num3">
+                    <label for="num4">Digite o 4° número</label>
+                    <input type="text" id="num4">
+                </div>
+
+                <div class="ultimos">
+                    <label for="num5">Digite o 5° número</label>
+                    <input type="text" id="num5">
+                    <label for="num6">Digite o 6° número</label>
+                    <input type="text" id="num6">
+                    <label for="num7">Digite o 7° número</label>
+                    <input type="text" id="num7">
+                    <label for="num8">Digite o 8° número</label>
+                    <input type="text" id="num8">
+
+                    <button id="calcular">Calcular</button>
+                    <div id="resultado"></div>
+                </div>
+            </section>
+            <div id="resultado"></div>
+        </nav>
+    </div>
+    <script>
+        document.getElementById('calcular').addEventListener('click', function () {
+            const numeros = [
+                parseInt(document.getElementById('num1').value),
+                parseInt(document.getElementById('num2').value),
+                parseInt(document.getElementById('num3').value),
+                parseInt(document.getElementById('num4').value),
+                parseInt(document.getElementById('num5').value),
+                parseInt(document.getElementById('num6').value),
+                parseInt(document.getElementById('num7').value),
+                parseInt(document.getElementById('num8').value),
+            ];
+
+            const resultado = numeros.map(num => {
+                return `${num} é ${isNaN(num) ? 'inválido' : (num % 2 === 0 ? 'par' : 'ímpar')}`;
+            });
+            document.getElementById('resultado').style.color = "#900000"
+            document.getElementById('resultado').innerHTML = resultado.join('<br>');
+        });
+    </script>
+    <br>
+    <button onclick="window.location.href='quarto_bimestre.html'" class="voltar">Voltar</button>
+
+</body>
+
+</html>

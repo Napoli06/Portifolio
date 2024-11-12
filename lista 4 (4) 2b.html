@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4 - 2 Bimestre</title>
+    <style>
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        border: none;
+        outline: none;
+        scroll-behavior: smooth;
+        font-family: "Poppins", sans-serif;
+    }
+    
+    :root {
+        --bg-color: #080808;
+        --second-bg-color: #131313;
+        --text-color: white;
+        --main-color: #00ffee;
+    }
+    
+    html {
+        font-size: 100%;
+        overflow-x: hidden;
+    }
+    
+    body {
+        background: var(--bg-color);
+        color: var(--text-color);
+    }
+    
+    .botao {
+        background-color: var(--main-color);
+        height: 1.5rem;
+        border-radius: 3rem;
+        border: 5px solid transparent;
+        cursor: pointer;
+        transition: 0.4s ease-in-out;
+        margin-bottom: 2rem;
+        margin-left: 2rem;
+    }
+
+    h1 {
+        color: var(--main-color);
+    }
+    </style>
+
+</head>
+<body>
+    <h1>Calculadora de Aumento de Salários</h1> <br><br>
+    <label for="NumFun">Quantidade de funcionários</label><br>
+    <input type="text" name="NumFun" id="NumFun" min="0"><br><br>
+    <button id='Adicionar' onclick="adicionar()">Adicionar funcionário</button><br><br>
+    <button id="Calcular" onclick="Calcular()">Calcular Valor do Salário</button><br>
+
+    <div id="mostrar">
+    </div>
+
+    <script>
+        function adicionar() {
+            var Fun = parseInt(document.getElementById('NumFun').value);
+            if (!isNaN(Fun) && Fun > 0) {
+                for (var i = 0; i < Fun; i++) {
+                    const input = document.createElement('input');
+                    const br = document.createElement('br');
+                    const label = document.createElement('label');
+                    
+                    label.textContent = 'Digite o Salário:';
+                    
+                    input.setAttribute('type', 'number');
+                    input.setAttribute('class', 'Salar');
+
+                    document.getElementById('mostrar').appendChild(label);
+                    document.getElementById('mostrar').appendChild(input);
+                    document.getElementById('mostrar').appendChild(br);
+                }
+            } else {
+                alert("Por favor, insira um número válido.");
+            }
+        }
+
+        function Calcular() {
+            var salarios = document.getElementsByClassName('Salar');
+            var resultado = document.createElement('div');
+            
+            for (var i = 0; i < salarios.length; i++) {
+                var salario = parseFloat(salarios[i].value);
+                if (isNaN(salario)) {
+                    continue;
+                }
+                var aumento;
+                if (salario < 2500) {
+                    aumento = salario * 1.10;
+                } else {
+                    aumento = salario * 1.08;
+                }
+                var result = document.createElement('p');
+                result.textContent = `Novo Salário: R$${aumento.toFixed(2)}`;
+                resultado.appendChild(result);
+            }
+            var mostrar = document.getElementById('mostrar');
+            mostrar.appendChild(resultado);
+        }
+    </script> <br> <br>
+
+    <h3>Explicação:</h3> <p>Se o salário do funcionário for menor 2500, terá um aumento de 1,10 em cima do seu salário atual <br>
+    caso contrário, o aumento do salário será de 1,08 em cima do seu salário atual</p> <br>
+    <button onclick="window.location.href='segundo_bimestre.html'" class="botao">Voltar</button>
+
+</body>
+</html>
